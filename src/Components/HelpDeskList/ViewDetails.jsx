@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const ViewDetails = () => {
   const navigate = useNavigate();
   return (
-    <div className="w-full mt-10 flex flex-col items-center text-white gap-5 px-10">
+    <div className="w-full h-full mt-10 flex flex-col items-center text-white gap-5 px-10  overflow-y-scroll hidden-scrollbar pb-28">
       <div className="w-full flex items-start">
         <svg
           onClick={() => navigate("/list")}
