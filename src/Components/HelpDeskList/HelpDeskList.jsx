@@ -1,35 +1,7 @@
-import FormList from "./FormList";
+import UserList from "./UserList";
 
-const Admin = () => {
+const HelpDeskList = () => {
   const data = [
-    {
-      firstName: "leon",
-      lastName: "ali",
-      email: "leonali@gmail.com",
-      issue: "i don't know",
-      description: "it is what it is",
-    },
-    {
-      firstName: "leon",
-      lastName: "ali",
-      email: "leonali@gmail.com",
-      issue: "i don't know",
-      description: "it is what it is",
-    },
-    {
-      firstName: "leon",
-      lastName: "ali",
-      email: "leonali@gmail.com",
-      issue: "i don't know",
-      description: "it is what it is",
-    },
-    {
-      firstName: "leon",
-      lastName: "ali",
-      email: "leonali@gmail.com",
-      issue: "i don't know",
-      description: "it is what it is",
-    },
     {
       firstName: "leon",
       lastName: "ali",
@@ -113,11 +85,11 @@ const Admin = () => {
       <span className="text-3xl text-white pb-5">Report List</span>
       <div className="w-full h-full grid gap-5 px-10 overflow-y-scroll mb-10 hidden-scrollbar">
         {data?.map((d, id) => (
-          <FormList key={id} d={d} />
+          <UserList key={id} d={d} />
         ))}
       </div>
     </div>
   );
 };
 
-export default Admin;
+export default HelpDeskList;

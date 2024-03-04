@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-const Solving = () => {
+const ViewDetails = () => {
   const navigate = useNavigate();
   return (
     <div className="w-full mt-10 flex flex-col items-center text-white gap-5 px-10">
       <div className="w-full flex items-start">
         <svg
-          onClick={() => navigate("/admin")}
+          onClick={() => navigate("/list")}
           className="cursor-pointer"
           fill="#ffffff"
           height="40px"
@@ -81,22 +81,38 @@ const Solving = () => {
           </div>
         </div>
         <div className="w-full flex flex-col items-start justify-between gap-2">
-          <span className="text-lg">Answer</span>
-          <textarea
-            type="text"
-            name=""
-            id=""
-            className="w-full bg-transparent border-rgb px-5 pt-2 h-24"
-          />
-        </div>
-        <div className="w-full flex justify-end">
-          <button className="border-rgb bg-transparent px-5 py-2 font-medium">
-            Solve
-          </button>
+          <span className="text-lg border-bottom">Answers</span>
+          <span className="text-lg text-[#d9e8e896]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            sequi nisi vitae rerum, accusantium delectus aspernatur libero
+            facere consequatur provident ea nam quasi veritatis odit minus omnis
+            sit, vero distinctio inventore minima repellendus! Recusandae,
+            aliquid harum hic quos beatae magnam distinctio temporibus
+            cupiditate repellendus dignissimos debitis quidem fuga voluptatibus
+            maiores nemo consectetur iure illo doloribus a inventore ducimus
+            reprehenderit natus similique. Autem voluptatem dignissimos incidunt
+            quod praesentium saepe deserunt dicta mollitia temporibus deleniti,
+            aut molestiae a, veniam est illo quos, soluta voluptatum consectetur
+            alias labore? Nisi nostrum, nihil voluptatibus tempore natus quia
+            illo asperiores, placeat repellat debitis iusto magni velit aperiam
+            deserunt provident dolor facilis, deleniti odit! Nulla sunt, culpa
+            beatae molestiae at rem consequuntur recusandae tempore aliquid
+            labore, dignissimos neque maiores qui earum assumenda? Nobis,
+            sapiente? Nesciunt assumenda architecto similique quaerat magni
+            ipsum, asperiores ipsa sed fugit esse consequatur facere debitis sit
+            temporibus aliquid earum. Natus dignissimos in ab animi doloribus,
+            quo voluptatem ratione quod eaque, perferendis tenetur maiores
+            expedita velit tempore blanditiis omnis consequuntur saepe
+            perspiciatis illo libero nostrum impedit? Cumque architecto, beatae
+            temporibus neque tenetur sed vitae soluta omnis repudiandae
+            excepturi sapiente blanditiis inventore, necessitatibus rerum quam
+            nobis pariatur quisquam dolorem. Dignissimos repudiandae aspernatur
+            exercitationem iure explicabo.
+          </span>
         </div>
       </div>
     </div>
   );
 };
 
-export default Solving;
+export default ViewDetails;

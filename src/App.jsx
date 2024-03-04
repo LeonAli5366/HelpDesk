@@ -3,20 +3,25 @@ import { Form } from "./Components/Form/Form";
 import Login from "./Components/Login/Login";
 import Admin from "./Components/Admin/Admin";
 import Solving from "./Components/Admin/Solving";
+import HelpDeskList from "./Components/HelpDeskList/HelpDeskList";
+import ViewDetails from "./Components/HelpDeskList/ViewDetails";
 
 const App = () => {
   return (
-    <div className="w-screen h-screen bg-gredient">
+    <div className="w-screen h-screen bg-gredient overflow-hidden">
       <nav className="w-full h-16 bg-transparent text-white flex items-center justify-between px-10">
-        <NavLink to='/'>Logo</NavLink>
+        <NavLink to="/">Logo</NavLink>
         <div className="flex gap-5">
           <NavLink to="/admin">Admin Panel</NavLink>
+          <NavLink to="/list">List</NavLink>
           <NavLink to="/login">Login</NavLink>
         </div>
       </nav>
       <Routes>
         <Route path="/" element={<Form />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/list" element={<HelpDeskList />} />
+        <Route path="/list/:id" element={<ViewDetails />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/:id" element={<Solving />} />
       </Routes>
