@@ -32,7 +32,7 @@ const HelpDeskList = () => {
           resolved
         </option>
       </select>
-      <div className="w-full h-full grid gap-5 px-10 overflow-y-scroll pb-28 hidden-scrollbar">
+      <div className="w-full h-auto grid gap-5 px-10 overflow-y-scroll pb-28 hidden-scrollbar">
         {loading ? (
           <>
             <h1>Loading...</h1>

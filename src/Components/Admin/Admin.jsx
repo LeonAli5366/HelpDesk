@@ -32,12 +32,12 @@ const Admin = () => {
           resolved
         </option>
       </select>
-      <div className="w-full h-full grid gap-5 px-10 overflow-y-scroll mb-10 hidden-scrollbar">
+      <div className="w-full h-auto grid gap-5 px-10 overflow-y-scroll mb-10 hidden-scrollbar">
         {loading ? (
           <></>
         ) : (
           <>
-            {tickets.length < 0 ? (
+            {tickets.length < 1 ? (
               <>
                 <h1 className="text-white text-3xl text-center">
                   No Ticket found
