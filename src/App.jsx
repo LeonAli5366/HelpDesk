@@ -8,6 +8,7 @@ import ViewDetails from "./Components/HelpDeskList/ViewDetails";
 import SignUp from "./Components/SignUp/SignUp";
 import { useContext } from "react";
 import { AuthContex } from "./ContextApi/UserContex";
+import AdminForm from "./Components/Form/AdminForm";
 
 const App = () => {
   // context api
@@ -43,6 +44,7 @@ const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Form />} />
+        <Route path="/adminform" element={<AdminForm />} />
         <Route path="/list" element={<HelpDeskList />} />
         <Route path="/list/:id" element={<ViewDetails />} />
         <Route path="/admin" element={<Admin />} />

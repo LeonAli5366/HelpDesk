@@ -120,7 +120,7 @@ export const Form = () => {
       <h1 className="text-red-600">{error}</h1>
       <button
         type="submit"
-        className="bg-slate-100 hover:bg-slate-200 px-7 py-2 rounded mt-5"
+        className="bg-slate-100 hover:bg-slate-200 px-7 py-2 rounded mt-5 text-black font-medium"
       >
         Submit
       </button>
