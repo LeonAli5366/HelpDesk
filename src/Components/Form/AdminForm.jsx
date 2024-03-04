@@ -26,7 +26,7 @@ const AdminForm = () => {
 
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:5000/api/v1/user/update", {
+    fetch("https://tms-server-hzd8.onrender.com/api/v1/user/update", {
       method: "PATCH",
       headers: {
         authorization: `bearer ${token}`,

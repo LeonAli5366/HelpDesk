@@ -23,7 +23,7 @@ const SignUp = () => {
       password: passwordRef.current.value,
     };
 
-    fetch("http://localhost:5000/api/v1/user/signup", {
+    fetch("https://tms-server-hzd8.onrender.com/api/v1/user/signup", {
       method: "POST",
       headers: {
         "content-type": "application/json",

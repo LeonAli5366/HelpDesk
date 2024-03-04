@@ -20,7 +20,7 @@ const UserContex = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:5000/api/v1/user/getuser", {
+    fetch("https://tms-server-hzd8.onrender.com/api/v1/user/getuser", {
       method: "GET",
       headers: {
         authorization: `brarer ${token}`,

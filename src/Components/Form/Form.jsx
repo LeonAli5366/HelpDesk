@@ -41,7 +41,7 @@ export const Form = () => {
       createdBy: emailRef.current.value,
     };
 
-    fetch("http://localhost:5000/api/v1/ticket/create", {
+    fetch("https://tms-server-hzd8.onrender.com/api/v1/ticket/create", {
       method: "POST",
       headers: {
         "content-type": "application/json",

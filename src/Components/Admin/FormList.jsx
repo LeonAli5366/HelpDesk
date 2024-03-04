@@ -22,7 +22,7 @@ const FormList = ({ ticket }) => {
   const navigate = useNavigate();
 
   const AcceptTicket = () => {
-    fetch(`http://localhost:5000/api/v1/ticket//accept/${_id}`, {
+    fetch(`https://tms-server-hzd8.onrender.com/api/v1/ticket//accept/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "applicatin/json",
