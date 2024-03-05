@@ -7,7 +7,7 @@ const HelpDeskList = () => {
   const { tickets, loading, setFilter, filter } = useContext(TicketContext);
   console.log(tickets);
   return (
-    <div className="w-full  flex flex-col items-center mt-10 gap-5 ">
+    <div className="w-full h-full flex flex-col items-center mt-10 gap-5 ">
       <span className="text-3xl text-white pb-5">Ticket List </span>
       <select
         className={`select  ml-[80%] ${filter === "all" ? "bg-white" : ""} ${
@@ -32,7 +32,7 @@ const HelpDeskList = () => {
           resolved
         </option>
       </select>
-      <div className="w-full grid gap-5 px-10 overflow-y-scroll  mb-10 hidden-scrollbar">
+      <div className="w-full h-full grid gap-5 px-10 overflow-y-scroll pb-28 hidden-scrollbar">
         {loading ? (
           <>
             <h1>Loading...</h1>
