@@ -1,34 +1,29 @@
 /* eslint-disable no-unused-vars */
-import { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import setTokenToLocalStroge from "../SetTokenToLocalStroge/SetTokenToLocalStroge";
-import { AuthContex } from "../../ContextApi/UserContex";
 
-const Login = () => {
-  // context api
-  const { setCount, count } = useContext(AuthContex);
+const SignUp = () => {
   // all state
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   // all ref
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-
-  // all functions
   const handleSubmit = (e) => {
+    setError("");
     e.preventDefault();
-
     const user = {
+      name: nameRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
 
-    console.log(user);
-
-    fetch("http://localhost:5000/api/v1/user/signin", {
+    fetch("http://localhost:5000/api/v1/user/signup", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,10 +33,8 @@ const Login = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success") {
-          toast.success("User login successfully");
-          navigate("/");
-          setTokenToLocalStroge(data?.userData?.token);
-          setCount(count + 1);
+          toast.success("User created successfully");
+          navigate("/login");
         } else {
           setError(data?.error);
         }
@@ -52,7 +45,19 @@ const Login = () => {
       onSubmit={handleSubmit}
       className="w-1/3 mx-auto mt-10 flex flex-col items-center gap-2"
     >
-      <span className="text-3xl text-white font-semibold pb-5">Login</span>
+      <span className="text-3xl text-white font-semibold pb-5">Sign up</span>
+      <div className="w-full flex flex-col items-start gap-1">
+        <label htmlFor="name" className="text-white text-lg">
+          Name
+        </label>
+        <input
+          ref={nameRef}
+          type="text"
+          name=""
+          id="email"
+          className="w-full bg-transparent border py-3 px-3 text-white"
+        />
+      </div>
       <div className="w-full flex flex-col items-start gap-1">
         <label htmlFor="email" className="text-white text-lg">
           Email
@@ -61,7 +66,7 @@ const Login = () => {
           ref={emailRef}
           type="email"
           name=""
-          id="email"
+          id="name"
           className="w-full bg-transparent border py-3 px-3 text-white"
         />
       </div>
@@ -78,21 +83,20 @@ const Login = () => {
         />
       </div>
       <h1 className="text-red-600">{error}</h1>
-      <Link to={`/signup`}>
+      <Link to={`/login`}>
         <h1 className="text-white mt-5 text-start">
           {`Don't have an account`}{" "}
-          <span className="cursor-pointer ml-2 underline">SignUp</span>
+          <span className="cursor-pointer ml-2 underline">Login</span>
         </h1>
       </Link>
-
       <button
         type="submit"
         className="bg-slate-100 hover:bg-slate-200 px-7 py-2 rounded mt-5"
       >
-        Login
+        Sign Up
       </button>
     </form>
   );
 };
 
-export default Login;
+export default SignUp;

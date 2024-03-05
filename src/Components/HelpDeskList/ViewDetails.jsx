@@ -29,7 +29,7 @@ const ViewDetails = () => {
           </g>
         </svg>
       </div>
-      <span className="text-3xl font-semibold">Solving</span>
+      <span className="text-3xl font-semibold">Ticket Overview</span>
       <div className="w-full flex flex-col justify-between p-5 border rounded bg-transparent border-rgb gap-5">
         <div className="w-full flex flex-col items-start justify-between gap-3">
           <div className="w-full flex items-center justify-between">
