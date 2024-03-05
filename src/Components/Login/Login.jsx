@@ -4,10 +4,12 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import setTokenToLocalStroge from "../SetTokenToLocalStroge/SetTokenToLocalStroge";
 import { AuthContex } from "../../ContextApi/UserContex";
+import { TicketContext } from "../../ContextApi/TicketContext";
 
 const Login = () => {
   // context api
   const { setCount, count } = useContext(AuthContex);
+  const { ticketCount, setTicketCount } = useContext(TicketContext);
   // all state
   const [error, setError] = useState("");
 
@@ -42,6 +44,7 @@ const Login = () => {
           navigate("/");
           setTokenToLocalStroge(data?.userData?.token);
           setCount(count + 1);
+          setTicketCount(ticketCount + 1);
         } else {
           setError(data?.error);
         }

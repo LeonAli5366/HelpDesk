@@ -13,7 +13,7 @@ const HelpDeskList = () => {
         className={`select  ml-[80%] ${filter === "all" ? "bg-white" : ""} ${
           filter === "new" ? "bg-cyan-600" : ""
         } ${filter === "pending" ? "bg-yellow-600" : ""} ${
-          filter === "sloved" ? "bg-green-600" : ""
+          filter === "resolved" ? "bg-green-600" : ""
         }`}
         onChange={(e) => {
           setFilter(e.target.value);
@@ -28,8 +28,8 @@ const HelpDeskList = () => {
         <option value="pending" className="bg-yellow-600">
           Pending
         </option>
-        <option value="sloved" className="bg-green-600">
-          Sloved
+        <option value="resolved" className="bg-green-600">
+          resolved
         </option>
       </select>
       <div className="w-full grid gap-5 px-10 overflow-y-scroll  mb-10 hidden-scrollbar">

@@ -23,7 +23,7 @@ const TicketContextProvider = ({ children }) => {
         setTikets(data.result);
         setLoading(false);
       });
-  }, [filter]);
+  }, [filter, ticketCount]);
   const contextValue = {
     tickets,
     filter,

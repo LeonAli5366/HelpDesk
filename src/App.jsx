@@ -42,7 +42,7 @@ const App = () => {
         </div>
       </nav>
       <Routes>
-        <Route path="/" element={<Form />} />
+        <Route path="/" element={<Form />}/>
         <Route path="/list" element={<HelpDeskList />} />
         <Route path="/list/:id" element={<ViewDetails />} />
         <Route path="/admin" element={<Admin />} />

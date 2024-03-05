@@ -4,12 +4,13 @@ import { AuthContex } from "../../ContextApi/UserContex";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { format } from "date-fns";
+import { TicketContext } from "../../ContextApi/TicketContext";
 
 export const Form = () => {
   // context api
   const { user } = useContext(AuthContex);
-  
-  const [error, setError] = useState('')
+  const { ticketCount, setTicketCount } = useContext(TicketContext);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -50,6 +51,7 @@ export const Form = () => {
       .then((data) => {
         if (data.status === "success") {
           toast.success(data.message);
+          setTicketCount(ticketCount + 1);
           navigate("/list");
         } else {
           setError(data.error);
