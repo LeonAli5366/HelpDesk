@@ -12,6 +12,7 @@ const Login = () => {
   const { ticketCount, setTicketCount } = useContext(TicketContext);
   // all state
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -29,7 +30,7 @@ const Login = () => {
     };
 
     console.log(user);
-
+    setLoading(true);
     fetch("https://tms-server-hzd8.onrender.com/api/v1/user/signin", {
       method: "POST",
       headers: {
@@ -39,13 +40,16 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setLoading(true);
         if (data.status === "success") {
           toast.success("User login successfully");
+          setLoading(false);
           navigate("/");
           setTokenToLocalStroge(data?.userData?.token);
           setCount(count + 1);
           setTicketCount(ticketCount + 1);
         } else {
+          setLoading(false)
           setError(data?.error);
         }
       });
@@ -53,7 +57,7 @@ const Login = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-1/3 mx-auto mt-10 flex flex-col items-center gap-2"
+      className="max-w-[700px] w-full mx-auto mt-10 flex flex-col items-center px-5 gap-2"
     >
       <span className="text-3xl text-white font-semibold pb-5">Login</span>
       <div className="w-full flex flex-col items-start gap-1">
@@ -90,9 +94,15 @@ const Login = () => {
 
       <button
         type="submit"
-        className="bg-slate-100 hover:bg-slate-200 px-7 py-2 rounded mt-5"
+        className="bg-slate-100 hover:bg-slate-200 px-7 py-2 rounded mt-5 text-black gap-1 font-medium flex"
+        disabled={loading === true}
       >
-        Login
+        {loading === true ? (
+          <span className="loading loading-spinner loading-md"></span>
+        ) : (
+          ""
+        )}
+        <span>Login</span>
       </button>
     </form>
   );

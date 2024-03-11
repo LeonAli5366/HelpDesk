@@ -63,7 +63,7 @@ export const Form = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className={`w-1/2 h-1/2 mx-auto mt-10 flex flex-col items-center gap-2 ${
+        className={`max-w-[700px] w-full px-5 mx-auto mt-10 flex flex-col items-center gap-2 ${
           user.role === "admin" ? "hidden" : ""
         }`}
       >

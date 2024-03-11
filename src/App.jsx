@@ -24,6 +24,9 @@ const App = () => {
           </h1>
         </div>
         <div className="flex gap-5">
+          <NavLink to='/'>
+            Home
+          </NavLink>
           <NavLink
             to="/admin"
             className={`${user?.role === "admin" ? "" : "hidden"}`}

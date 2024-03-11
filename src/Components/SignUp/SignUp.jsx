@@ -7,7 +7,6 @@ const SignUp = () => {
   // all state
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
 
   // all ref
@@ -22,7 +21,7 @@ const SignUp = () => {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
-
+    setLoading(true);
     fetch("https://tms-server-hzd8.onrender.com/api/v1/user/signup", {
       method: "POST",
       headers: {
@@ -34,8 +33,10 @@ const SignUp = () => {
       .then((data) => {
         if (data.status === "success") {
           toast.success("User created successfully");
+          setLoading(false);
           navigate("/login");
         } else {
+          setLoading(false);
           setError(data?.error);
         }
       });
@@ -43,7 +44,7 @@ const SignUp = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-1/3 mx-auto mt-10 flex flex-col items-center gap-2"
+      className="max-w-[700px] w-full mx-auto mt-10 px-5 flex flex-col items-center gap-2"
     >
       <span className="text-3xl text-white font-semibold pb-5">Sign up</span>
       <div className="w-full flex flex-col items-start gap-1">
@@ -91,9 +92,14 @@ const SignUp = () => {
       </Link>
       <button
         type="submit"
-        className="bg-slate-100 hover:bg-slate-200 px-7 py-2 rounded mt-5"
+        className="bg-slate-100 hover:bg-slate-200 px-7 py-2 rounded mt-5 flex gap-1 text-black font-medium"
       >
-        Sign Up
+        {loading === true ? (
+          <span className="loading loading-spinner loading-md"></span>
+        ) : (
+          ""
+        )}
+        <span>Sign Up</span>
       </button>
     </form>
   );
